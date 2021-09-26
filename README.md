@@ -7,7 +7,7 @@ MvcSozluk eksisozluk.com, uludagsozluk.com gibi sitelerin kullandığı bir inte
 1. ASP.NET MVC5
 2. Entity Framework (CodeFirst)
 3. N-Tier Architecture (N Katmanlı Mimari)
-4. Sql Linq Query 
+4. MsSql Linq Query 
 5. Bootstrap (Tema: AdminLTE-3.0.4)
 
 ## Proje Görselleri
