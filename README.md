@@ -1,5 +1,7 @@
 # MvcSozluk - İnteraktif Sözlük Yazılımı V1
 
+MvcSozluk eksisozluk.com, uludagsozluk.com gibi sitelerin kullandığı bir interaktif sözlük yazılımıdır. Kullanıcılar yazılım üzerinden başlıklar ve içerikler girerek kendi aralarında bilgi alışverişi yapabilirler.
+
 ## Kullanılan Teknoloji ve Yapılar
 
 1. ASP.NET MVC5
