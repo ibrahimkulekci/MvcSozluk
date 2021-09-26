@@ -1,0 +1,91 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="row">
+    <div class="col-lg-12">
+        <h1 style="font-size: 1.8rem;">İstatistik Sayfası</h1>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-4 col-sm-6 col-12">
+        <div class="info-box">
+            <span class="info-box-icon bg-danger"><i class="far fa-star"></i></span>
+
+            <div class="info-box-content">
+                <span class="info-box-text">Kategori Sayısı</span>
+                <span class="info-box-number">@ViewBag.toplamkategori</span>
+            </div>
+            <!-- /.info-box-content -->
+        </div>
+        <!-- /.info-box -->
+    </div>
+    <!-- /.col -->
+    <div class="col-md-4 col-sm-6 col-12">
+        <div class="info-box">
+            <span class="info-box-icon bg-danger"><i class="far fa-star"></i></span>
+
+            <div class="info-box-content">
+                <span class="info-box-text">"Yazılım" Başlık Sayısı</span>
+                <span class="info-box-number">@ViewBag.basliksayisibyyazilim</span>
+            </div>
+            <!-- /.info-box-content -->
+        </div>
+        <!-- /.info-box -->
+    </div>
+    <!-- /.col -->
+    <div class="col-md-4 col-sm-6 col-12">
+        <div class="info-box">
+            <span class="info-box-icon bg-danger"><i class="far fa-star"></i></span>
+
+            <div class="info-box-content">
+                <span class="info-box-text">"A" Harfi Geçen Yazar Sayısı</span>
+                <span class="info-box-number">@ViewBag.yazaradibya</span>
+            </div>
+            <!-- /.info-box-content -->
+        </div>
+        <!-- /.info-box -->
+    </div>
+    <!-- /.col -->
+    <div class="col-md-4 col-sm-6 col-12">
+        <div class="info-box">
+            <span class="info-box-icon bg-danger"><i class="far fa-star"></i></span>
+
+            <div class="info-box-content">
+                <span class="info-box-text">En Fazla Başlık Olan Kategori</span>
+                <span class="info-box-number">@ViewBag.enfazlabaslikbykategori</span>
+            </div>
+            <!-- /.info-box-content -->
+        </div>
+        <!-- /.info-box -->
+    </div>
+    <!-- /.col -->
+    <div class="col-md-4 col-sm-6 col-12">
+        <div class="info-box">
+            <span class="info-box-icon bg-danger"><i class="far fa-star"></i></span>
+
+            <div class="info-box-content">
+                <span class="info-box-text">Kategori True/False Farkı</span>
+                <span class="info-box-number">@ViewBag.truevefalsefarki</span>
+            </div>
+            <!-- /.info-box-content -->
+        </div>
+        <!-- /.info-box -->
+    </div>
+    <!-- /.col -->
+    <div class="col-md-4 col-sm-6 col-12">
+        <div class="info-box">
+            <span class="info-box-icon bg-danger"><i class="far fa-star"></i></span>
+
+            <div class="info-box-content">
+                <span class="info-box-text">Yazar</span>
+                <span class="info-box-number">@ViewBag.toplamyazar</span>
+            </div>
+            <!-- /.info-box-content -->
+        </div>
+        <!-- /.info-box -->
+    </div>
+    <!-- /.col -->
+</div>
+

@@ -1,0 +1,43 @@
+﻿@using Entity.Concrete
+@model List<Content>
+@{
+    ViewBag.Title = "ContentByHeading";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="row">
+    <div class="col-lg-12">
+        <h1 style="font-size: 1.8rem;">"XXX" Başlık İçin Yazılar</h1>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-header border-0">
+                <a href="#" class="btn btn-success">Yeni Yazı Ekle</a>
+            </div>
+            <div class="card-body">
+                <div class="direct-chat-messages" style="overflow:inherit;">
+                    <!-- Message. Default to the left -->
+                    @foreach (var item in Model)
+                    {
+                        <div class="direct-chat-msg" style="">
+                            <div class="direct-chat-infos clearfix">
+                                <span class="direct-chat-name float-left">@item.Writer.WriterUsername</span>
+                                <span class="direct-chat-timestamp float-right">@(((DateTime)item.ContentDate).ToString("dd.MM.yyyy"))</span>
+                            </div>
+                            <!-- /.direct-chat-infos -->
+                            <img class="direct-chat-img" src="/AdminLTE-3.0.4/dist/img/user1-128x128.jpg" alt="Message User Image">
+                            <!-- /.direct-chat-img -->
+                            <div class="direct-chat-text" style="background-color: #f4f6f9;">
+                                @item.ContentValue
+                            </div>
+                            <!-- /.direct-chat-text -->
+                        </div>
+                    }
+                    <!-- /.direct-chat-msg -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

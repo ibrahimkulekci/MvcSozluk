@@ -1,0 +1,49 @@
+﻿@using Entity.Concrete
+@model List<Writer>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="row">
+    <div class="col-lg-12">
+        <h1 style="font-size: 1.8rem;">Yazarlar</h1>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-header border-0">
+                <a href="/Writer/AddWriter" class="btn btn-success">Yeni Yazar</a>
+            </div>
+            <div class="card-body table-responsive p-0">
+                <table class="table table-striped table-valign-middle">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Yazar</th>
+                            <th>E-mail</th>
+                            <th>İşlemler</th>
+                        </tr>
+                    <thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <th>@item.WriterID</th>
+                                <td>@item.WriterUsername</td>
+                                <td>@item.WriterMail</td>
+                                <td>
+                                    <a href="/Writer/DeleteWriter/@item.WriterID" class="btn btn-danger">Sil</a>
+                                    <a href="/Writer/EditWriter/@item.WriterID" class="btn btn-warning">Güncelle</a>
+                                    <a href="#" class="btn btn-primary">Başlıklar</a>
+                                </td>
+
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+

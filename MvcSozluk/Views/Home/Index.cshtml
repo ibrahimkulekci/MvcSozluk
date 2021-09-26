@@ -1,0 +1,39 @@
+﻿@using Entity.Concrete
+@model List<Content>
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="row">
+    <div class="col-lg-12">
+        @if (Model.Count <= 0)
+        {
+            <div class="card card-widget">
+                <div class="card-body">
+                    <p>
+                        Henüz içerik eklenmemiştir.
+                    </p>
+                </div>
+            </div>
+        }
+        else
+        {
+            foreach (var item in Model)
+            {
+                <div class="card card-widget">
+                    <div class="card-header">
+                        <div class="user-block">
+                            <span class=""><a href="/Heading/Content/@item.Heading.HeadingID" class="font-weight-bold text-body">@item.Heading.HeadingName</a></span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p>
+                            @item.ContentValue
+                        </p>
+                        <span class="float-right text-muted">11.108.2021 - <a href="/User/Index/@item.Writer.WriterID" class="text-black-50">@item.Writer.WriterUsername</a></span>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+</div>

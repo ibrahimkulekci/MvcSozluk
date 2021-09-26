@@ -1,0 +1,53 @@
+﻿@using Entity.Concrete
+@model List<ImageFile>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@section style{
+    <!-- Ekko Lightbox -->
+    <link rel="stylesheet" href="~/AdminLTE-3.0.4/plugins/ekko-lightbox/ekko-lightbox.css">
+}
+<div class="row">
+    <div class="col-lg-12">
+        <h1 style="font-size: 1.8rem;">Galeri Sayfası</h1>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12">
+        <div class="card card-primary">
+            <div class="card-header">
+                <div class="card-title">
+                    Ekko Lightbox
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    @foreach (var item in Model)
+                    {
+                    <div class="col-sm-2">
+                        <a href="@item.ImagePath" data-toggle="lightbox" data-title="@item.ImageName" data-gallery="gallery">
+                            <img src="@item.ImagePath" class="img-fluid mb-2" alt="white sample" />
+                        </a>
+                    </div>
+                    }                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts{
+    <!-- Ekko Lightbox -->
+    <script src="~/AdminLTE-3.0.4/plugins/ekko-lightbox/ekko-lightbox.min.js"></script>
+    <!-- Page specific script -->
+    <script>
+        $(function () {
+            $(document).on('click', '[data-toggle="lightbox"]', function (event) {
+                event.preventDefault();
+                $(this).ekkoLightbox({
+                    alwaysShowClose: true
+                });
+            });
+        })
+    </script>
+}

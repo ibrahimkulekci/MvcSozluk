@@ -1,0 +1,37 @@
+﻿@model Entity.Concrete.Heading
+@{
+    ViewBag.Title = "EditHeading";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="row">
+    <div class="col-lg-12">
+        <h1 style="font-size: 1.8rem;">Başlık Güncelleme</h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-body">
+                @using (Html.BeginForm("EditHeading", "Heading", FormMethod.Post))
+                {
+                <div class="form-group">
+                    @Html.HiddenFor(x => x.HeadingID)
+                    @Html.Label("Başlık")
+                    @Html.TextBoxFor(x => x.HeadingName, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(x => x.HeadingName, null, new { @class = "text-danger" })
+                    <br />
+                    @Html.Label("Kategori")
+                    @Html.DropDownListFor(x => x.CategoryID, (List<SelectListItem>)ViewBag.vlc, new { @class = "form-control" })
+                    <br />
+                    @Html.HiddenFor(x => x.HeadingDate)
+                    @Html.HiddenFor(x => x.WriterID)
+                    @Html.HiddenFor(x => x.HeadingStatus)
+                    <button class="btn btn-success">Kaydet</button>
+                    <a href="/Heading/Index" class="btn btn-danger">İptal</a>
+                </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

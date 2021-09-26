@@ -1,0 +1,56 @@
+﻿@using Entity.Concrete
+@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<Content>
+@{
+    ViewBag.Title = ViewBag.baslik.HeadingName + " - " + " Sözlük Yazılımı";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="h3 text-lowercase">@ViewBag.baslik.HeadingName</h1>
+    </div>
+    <div class="col-lg-12">
+        @foreach (var item in Model)
+        {
+            <div class="card card-widget">
+                <div class="card-body">
+                    <p class="text-lowercase">
+                        @item.ContentValue
+                    </p>
+                    <span class="float-right text-muted">@(((DateTime)item.ContentDate).ToString("dd.MM.yyyy")) - <a href="/User/Index/@item.Writer.WriterID" class="text-black-50">@item.Writer.WriterUsername</a></span>
+                </div>
+            </div>
+        }
+    </div>
+    <div class="col-lg-12">
+        @Html.PagedListPager((IPagedList)Model, page => Url.Action("Content" + "/" + ViewBag.headingID, new { page }), new PagedListRenderOptions
+   {
+       LiElementClasses = new List<string>
+               {"page-link"}
+   })
+    </div>
+    @if (Session["WriterID"] != null)
+    {
+
+        <div class="col-lg-12">
+            <div class="card card-widget">
+                <div class="card-body">
+                    @using (Html.BeginForm("Content", "Heading", FormMethod.Post))
+                    {
+                        <div class="form-group">
+                            <input type="hidden" value="@ViewBag.headingID" name="HeadingID" />
+                            <label>Yorum</label>
+                            <textarea class="form-control" name="ContentValue"></textarea>
+                            @ViewBag.ErrorMessage
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-success float-lg-right">Gönder</button>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    }
+</div>
+

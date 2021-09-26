@@ -1,0 +1,45 @@
+﻿@model Entity.Concrete.Writer
+@{
+    ViewBag.Title = "EditWriter";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-lg-12">
+        <h1 style="font-size: 1.8rem;">Yazar Düzenle</h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-body">
+                @using (Html.BeginForm("EditWriter", "Writer", FormMethod.Post))
+                {
+                    <div class="form-group">
+                        @Html.HiddenFor(x=>x.WriterID)
+                        @Html.Label("Kullanıcı Adı")
+                        @Html.TextBoxFor(x => x.WriterUsername, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.WriterUsername, null, new { @class = "text-danger" })
+                        <br />
+                        @Html.Label("E-Mail")
+                        @Html.TextBoxFor(x => x.WriterMail, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.WriterMail, null, new { @class = "text-danger" })
+                        <br />
+                        @Html.Label("Şifre")
+                        @Html.TextBoxFor(x => x.WriterPassword, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.WriterPassword, null, new { @class = "text-danger" })
+                        <br />
+                        @Html.Label("Hakkımda")
+                        @Html.TextAreaFor(x => x.WriterAbout, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(x => x.WriterAbout, null, new { @class = "text-danger" })
+                        <br />
+                        <button class="btn btn-success">Güncelle</button>
+                        <a href="/Writer/Index" class="btn btn-danger">İptal</a>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+

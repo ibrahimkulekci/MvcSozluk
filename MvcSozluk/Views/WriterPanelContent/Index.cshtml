@@ -1,0 +1,36 @@
+﻿@using Entity.Concrete
+@model List<Content>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
+}
+<div class="row">
+    <div class="col-lg-12">
+        <h1 style="font-size: 1.8rem;">Yazılarım</h1>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-12">
+        @foreach (var item in Model)
+        {
+        <div class="card card-widget">
+            <div class="card-header">
+                <div class="user-block">
+                    Başlık: <a href="#">@item.Heading.HeadingName</a>
+                </div>
+                <!-- /.user-block -->
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+                <!-- post text -->
+                <p>
+                    @item.ContentValue
+                </p>
+                <span class="float-right text-muted">@(((DateTime)item.ContentDate).ToString("dd-MM-yyy"))</span>
+            </div>
+            <!-- /.card-body -->
+        </div>
+        }
+    </div>
+</div>
+

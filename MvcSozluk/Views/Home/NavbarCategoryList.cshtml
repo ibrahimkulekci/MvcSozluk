@@ -1,0 +1,11 @@
+﻿@using Entity.Concrete
+@model List<Category>
+<li class="nav-item dropdown">
+    <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">Kategoriler</a>
+    <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
+        @foreach (var item in Model)
+        {
+            <li><a href="/Heading/Category/@item.categoryID" class="dropdown-item">@item.CategoryName</a></li>
+        }
+    </ul>
+</li>

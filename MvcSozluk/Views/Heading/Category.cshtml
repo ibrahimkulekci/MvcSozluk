@@ -1,0 +1,37 @@
+﻿@using Entity.Concrete
+@model List<Heading>
+@{
+    ViewBag.Title = "Category";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Kategori: </h2>
+
+<div class="row">
+    <div class="col-lg-12">
+        @if (Model.Count <= 0)
+        {
+            <div class="card card-widget">
+                <div class="card-body">
+                    <p>
+                        Henüz içerik eklenmemiştir.
+                    </p>
+                </div>
+            </div>
+        }
+        else
+        {
+            foreach (var item in Model)
+            {
+                <div class="card card-widget">
+                    <div class="card-header">
+                        <div class="user-block">
+                            <span class=""><a href="/Heading/Content/@item.HeadingID" class="font-weight-bold text-body">@item.HeadingName</a></span>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+</div>
+
